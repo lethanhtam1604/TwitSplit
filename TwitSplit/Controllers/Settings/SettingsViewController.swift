@@ -1,0 +1,58 @@
+//
+//  SettingsViewController.swift
+//  TwitSplit
+//
+//  Created by Thanh Tam Le on 10/4/17.
+//  Copyright © 2017 Thanh Tam Le. All rights reserved.
+//
+
+import UIKit
+
+class SettingsViewController: BaseViewController {
+    
+    // MARK: - Outlet
+    @IBOutlet fileprivate weak var profileView: UIView!
+    @IBOutlet fileprivate weak var logoutView: UIView!
+    
+    // Mark: - View Cycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        initCommon()
+    }
+    
+    // Mark: - Memory Warning
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        
+    }
+    
+    @objc func actionTapToProfileView() {
+        let storyboard = UIStoryboard(name: "Settings", bundle: nil)
+        if let viewController = storyboard.instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController {
+            navigationController?.pushViewController(viewController, animated: true)
+        }
+    }
+    
+    @objc func actionTapToLogoutView() {
+        let alertController = UIAlertController(title: NSLocalizedString("logout", comment: ""), message: NSLocalizedString("logout_message", comment: ""), preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: NSLocalizedString("cancel", comment: ""), style: .default, handler: nil)
+        let okAction = UIAlertAction(title: NSLocalizedString("ok", comment: ""), style: .default) { _ in
+            //write func for logout here...
+        }
+        alertController.addAction(cancelAction)
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+    }
+}
+
+// Mark: Setup ViewController
+extension SettingsViewController {
+    
+    fileprivate func initCommon() {
+        title = "settings".uppercased()
+        profileView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(actionTapToProfileView)))
+        logoutView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(actionTapToLogoutView)))
+    }
+}
+
