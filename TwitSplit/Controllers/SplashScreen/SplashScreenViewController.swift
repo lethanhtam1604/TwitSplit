@@ -38,13 +38,13 @@ class SplashScreenViewController: BaseViewController {
         }
     }
 }
-// Mark: Setup ViewController
+// Mark: - Setup ViewController
 extension SplashScreenViewController {
     
     fileprivate func initCommon() {
         view.backgroundColor = UIColor.white
         titleLabel.increaseSize()
-        Global.currentWorkFlow = WorkFlow.mainScreen.hashValue
+        Global.currentWorkFlow = WorkFlow.login.hashValue
         navigateToMainPage()
     }
 }

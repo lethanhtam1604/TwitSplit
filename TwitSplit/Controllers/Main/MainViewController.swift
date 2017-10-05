@@ -34,7 +34,15 @@ class MainViewController: UITabBarController, UINavigationControllerDelegate {
             if let viewController = storyboard.instantiateViewController(withIdentifier: "SplashScreenViewController") as? SplashScreenViewController {
                 navigationController?.pushViewController(viewController, animated: false)
             }
+            break
+        case WorkFlow.login.hashValue:
+            let storyboard = UIStoryboard(name: "Authentication", bundle: nil)
+            if let viewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
+                present(viewController, animated: true, completion: nil)
+            }
+            break
         case WorkFlow.mainScreen.hashValue:
+            selectedIndex = 0
             break
         default:
             break

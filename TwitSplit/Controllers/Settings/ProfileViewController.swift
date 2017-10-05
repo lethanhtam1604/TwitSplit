@@ -33,11 +33,11 @@ class ProfileViewController: BaseViewController {
     }
 }
 
-// Mark: Setup ViewController
+// Mark: - Setup ViewController
 extension ProfileViewController {
     
     fileprivate func initCommon() {
-        title = NSLocalizedString("profile", comment: "").uppercased()
+        title = "profile".uppercased()
         
         //enable swipe back when it changed leftBarButtonItem
         navigationController?.interactivePopGestureRecognizer?.delegate = nil
@@ -48,7 +48,7 @@ extension ProfileViewController {
         backBarButton.tintColor = UIColor.black
         self.navigationItem.leftBarButtonItem = backBarButton
         
-        let saveBarButton = UIBarButtonItem(title: NSLocalizedString("save", comment: "").uppercased(), style: .done, target: self, action: #selector(actionTapToSaveBtn))
+        let saveBarButton = UIBarButtonItem(title: "save".uppercased(), style: .done, target: self, action: #selector(actionTapToSaveBtn))
         saveBarButton.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: Global.colorMain, NSAttributedStringKey.font: UIFont(name: "OpenSans-semibold", size: 15) ?? UIFont.systemFontSize], for: UIControlState.normal)
         self.navigationItem.rightBarButtonItem = saveBarButton
     }

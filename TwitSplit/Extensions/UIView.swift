@@ -29,4 +29,15 @@ extension UIView {
         layer.masksToBounds = false
         layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath
     }
+    
+    // Mark: - Keyboard
+    func addTapToDismiss() {
+        let tapViewGesture = UITapGestureRecognizer(target: self, action: #selector(dismiss))
+        tapViewGesture.cancelsTouchesInView = false
+        addGestureRecognizer(tapViewGesture)
+    }
+    
+    @objc func dismiss() {
+        endEditing(true)
+    }
 }

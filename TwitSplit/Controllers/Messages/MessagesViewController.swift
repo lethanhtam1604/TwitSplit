@@ -27,7 +27,7 @@ class MessagesViewController: BaseViewController {
     }
 }
 
-// Mark: Setup ViewController
+// Mark: - Setup ViewController
 extension MessagesViewController {
     
     fileprivate func initCommon() {

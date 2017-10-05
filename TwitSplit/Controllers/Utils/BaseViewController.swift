@@ -33,6 +33,7 @@ extension BaseViewController {
         view.backgroundColor = Global.colorBg
         view.tintColor = Global.colorMain
         view.clipsToBounds = true
+        view.addTapToDismiss()
     }
     
     fileprivate func setupNavigationBar() {

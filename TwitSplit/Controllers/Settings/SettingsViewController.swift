@@ -35,10 +35,14 @@ class SettingsViewController: BaseViewController {
     }
     
     @objc func actionTapToLogoutView() {
-        let alertController = UIAlertController(title: NSLocalizedString("logout", comment: ""), message: NSLocalizedString("logout_message", comment: ""), preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: NSLocalizedString("cancel", comment: ""), style: .default, handler: nil)
-        let okAction = UIAlertAction(title: NSLocalizedString("ok", comment: ""), style: .default) { _ in
+        let alertController = UIAlertController(title: "Logout", message: "Are you sure want to logout?", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        let okAction = UIAlertAction(title: "Ok", style: .default) { _ in
             //write func for logout here...
+            let storyboard = UIStoryboard(name: "Authentication", bundle: nil)
+            if let viewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
+                self.present(viewController, animated: true, completion: nil)
+            }
         }
         alertController.addAction(cancelAction)
         alertController.addAction(okAction)
@@ -46,7 +50,7 @@ class SettingsViewController: BaseViewController {
     }
 }
 
-// Mark: Setup ViewController
+// Mark: - Setup ViewController
 extension SettingsViewController {
     
     fileprivate func initCommon() {

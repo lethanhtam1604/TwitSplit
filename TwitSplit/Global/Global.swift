@@ -11,7 +11,8 @@ import UIKit
 // Mark: - Application WorkFlow
 enum WorkFlow: Int {
     case splashScreen = 0
-    case mainScreen = 1
+    case login = 1
+    case mainScreen = 2
     case nothing = -1
 }
 
