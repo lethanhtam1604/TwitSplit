@@ -10,7 +10,7 @@ import UIKit
 
 class SplashScreenViewController: BaseViewController {
     
-    // MARK: - Outlet
+    // Mark: - Outlet
     @IBOutlet fileprivate weak var titleLabel: UILabel!
     
     // Mark: - View Cycle

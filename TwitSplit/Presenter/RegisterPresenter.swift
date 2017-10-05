@@ -15,7 +15,7 @@ protocol RegisterView: class {
     func register()
 }
 
-// Mark: - LoginPresenter is a mediator between the LoginViewControler and the Model
+// Mark: - RegisterPresenter is a mediator between the RegisterViewControler and the Model
 class RegisterPresenter: NSObject {
     
     weak fileprivate var registerView: RegisterView?

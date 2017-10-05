@@ -10,12 +10,12 @@ import UIKit
 
 class MainViewController: UITabBarController, UINavigationControllerDelegate {
     
-    // MARK: - Variable
+    // Mark: - Variable
     fileprivate var messagesViewController: MessagesViewController!
     fileprivate var settingsViewController: SettingsViewController!
     fileprivate var previousTag = 1
     
-    // MARK: - View Cycle
+    // Mark: - View Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,7 +23,7 @@ class MainViewController: UITabBarController, UINavigationControllerDelegate {
         setupTabBarController()
     }
     
-    // MARK: - View Cycle
+    // Mark: - View Cycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -38,10 +38,11 @@ class MainViewController: UITabBarController, UINavigationControllerDelegate {
         case WorkFlow.login.hashValue:
             let storyboard = UIStoryboard(name: "Authentication", bundle: nil)
             if let viewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
-                present(viewController, animated: true, completion: nil)
+                parent?.present(viewController, animated: true, completion: nil)
             }
             break
         case WorkFlow.mainScreen.hashValue:
+            view.isHidden = false
             selectedIndex = 0
             break
         default:
@@ -51,7 +52,7 @@ class MainViewController: UITabBarController, UINavigationControllerDelegate {
         Global.currentWorkFlow = WorkFlow.nothing.hashValue
     }
     
-    // MARK: - Memory Warning
+    // Mark: - Memory Warning
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -61,7 +62,7 @@ class MainViewController: UITabBarController, UINavigationControllerDelegate {
 extension MainViewController {
     
     fileprivate func initCommon() {
-        
+        view.isHidden = true
         navigationController?.isNavigationBarHidden = true
         view.tintColor = Global.colorMain
         tabBar.shadowImage = UIImage()

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5E7E29F5B00B090C8BD2E9D0 /* Pods_TwitSplit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E47B521B5F1CFFC47A1A20C /* Pods_TwitSplit.framework */; };
+		C80C5EE41F86344000EC0016 /* MessagesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80C5EE31F86344000EC0016 /* MessagesPresenter.swift */; };
 		C8165D9E1F84DC52004A258F /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8165D9D1F84DC52004A258F /* UIView.swift */; };
 		C8165DA01F84DC7E004A258F /* NSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8165D9F1F84DC7E004A258F /* NSAttributedString.swift */; };
 		C8165DA21F84DCC9004A258F /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8165DA11F84DCC9004A258F /* UIImageView.swift */; };
@@ -33,6 +34,10 @@
 		C88FFEA01F84D3FF0006506A /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88FFE9F1F84D3FE0006506A /* Global.swift */; };
 		C88FFEA21F84D4C40006506A /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88FFEA11F84D4C40006506A /* UIColor.swift */; };
 		C88FFEA41F84D52F0006506A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88FFEA31F84D52F0006506A /* AppDelegate.swift */; };
+		C8B3FC0D1F85FC2D002EB8A0 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B3FC0B1F85FC2D002EB8A0 /* MessageTableViewCell.swift */; };
+		C8B3FC0E1F85FC2D002EB8A0 /* MessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8B3FC0C1F85FC2D002EB8A0 /* MessageTableViewCell.xib */; };
+		C8B3FC111F85FF0E002EB8A0 /* MessageInputBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B3FC101F85FF0E002EB8A0 /* MessageInputBarView.swift */; };
+		C8B3FC151F86027B002EB8A0 /* MessageInputBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8B3FC141F86027B002EB8A0 /* MessageInputBarView.xib */; };
 		C8EA65AB1F85DD4E0067B96C /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8EA65AA1F85DD4E0067B96C /* String.swift */; };
 		C8EA65AD1F85DFD30067B96C /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8EA65AC1F85DFD30067B96C /* LoginPresenter.swift */; };
 		C8EA65AF1F85E2420067B96C /* RegisterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8EA65AE1F85E2420067B96C /* RegisterPresenter.swift */; };
@@ -40,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		6E47B521B5F1CFFC47A1A20C /* Pods_TwitSplit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TwitSplit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C80C5EE31F86344000EC0016 /* MessagesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesPresenter.swift; sourceTree = "<group>"; };
 		C8165D9D1F84DC52004A258F /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		C8165D9F1F84DC7E004A258F /* NSAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedString.swift; sourceTree = "<group>"; };
 		C8165DA11F84DCC9004A258F /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
@@ -67,6 +73,10 @@
 		C88FFE9F1F84D3FE0006506A /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		C88FFEA11F84D4C40006506A /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		C88FFEA31F84D52F0006506A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C8B3FC0B1F85FC2D002EB8A0 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
+		C8B3FC0C1F85FC2D002EB8A0 /* MessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageTableViewCell.xib; sourceTree = "<group>"; };
+		C8B3FC101F85FF0E002EB8A0 /* MessageInputBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageInputBarView.swift; sourceTree = "<group>"; };
+		C8B3FC141F86027B002EB8A0 /* MessageInputBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageInputBarView.xib; sourceTree = "<group>"; };
 		C8BE169D1F836EB0001C383A /* TwitSplit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitSplit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8EA65AA1F85DD4E0067B96C /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		C8EA65AC1F85DFD30067B96C /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
@@ -102,6 +112,13 @@
 				6E47B521B5F1CFFC47A1A20C /* Pods_TwitSplit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C80C5EE51F86647500EC0016 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		C8165DA31F84DEAC004A258F /* SplashScreen */ = {
@@ -242,6 +259,7 @@
 			children = (
 				C8EA65AC1F85DFD30067B96C /* LoginPresenter.swift */,
 				C8EA65AE1F85E2420067B96C /* RegisterPresenter.swift */,
+				C80C5EE31F86344000EC0016 /* MessagesPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -249,15 +267,12 @@
 		C88FFE781F84CC020006506A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C8B3FC0B1F85FC2D002EB8A0 /* MessageTableViewCell.swift */,
+				C8B3FC0C1F85FC2D002EB8A0 /* MessageTableViewCell.xib */,
+				C8B3FC101F85FF0E002EB8A0 /* MessageInputBarView.swift */,
+				C8B3FC141F86027B002EB8A0 /* MessageInputBarView.xib */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		C88FFE811F84CC020006506A /* Xibs */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Xibs;
 			sourceTree = "<group>";
 		};
 		C88FFE8C1F84D0730006506A /* AppDelegate */ = {
@@ -297,6 +312,7 @@
 		C8BE169F1F836EB0001C383A /* TwitSplit */ = {
 			isa = PBXGroup;
 			children = (
+				C80C5EE51F86647500EC0016 /* Manager */,
 				C88FFE8C1F84D0730006506A /* AppDelegate */,
 				C88FFE671F84CB910006506A /* Extensions */,
 				C88FFE621F84CB890006506A /* Global */,
@@ -305,7 +321,6 @@
 				C85C3B151F847E7B00A0DB3D /* Storyboards */,
 				C85C3B181F847EC100A0DB3D /* Controllers */,
 				C88FFE781F84CC020006506A /* Views */,
-				C88FFE811F84CC020006506A /* Xibs */,
 				C848854F1F837E1D0032FA3B /* Resources */,
 			);
 			path = TwitSplit;
@@ -374,8 +389,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C88508FD1F84EBF500F97475 /* Assets.xcassets in Resources */,
+				C8B3FC0E1F85FC2D002EB8A0 /* MessageTableViewCell.xib in Resources */,
 				C88508F91F84EBF000F97475 /* OpenSans-bold.ttf in Resources */,
 				C88508FA1F84EBF000F97475 /* OpenSans-light.ttf in Resources */,
+				C8B3FC151F86027B002EB8A0 /* MessageInputBarView.xib in Resources */,
 				C841CCD81F850E45007CD422 /* Authentication.storyboard in Resources */,
 				C88508FB1F84EBF000F97475 /* OpenSans-semibold.ttf in Resources */,
 				C88508FC1F84EBF000F97475 /* OpenSans.ttf in Resources */,
@@ -455,13 +472,16 @@
 				C8165DAC1F84DF6E004A258F /* MessagesViewController.swift in Sources */,
 				C8165DA21F84DCC9004A258F /* UIImageView.swift in Sources */,
 				C8165DB01F84DF7D004A258F /* ProfileViewController.swift in Sources */,
+				C80C5EE41F86344000EC0016 /* MessagesPresenter.swift in Sources */,
 				C88FFEA21F84D4C40006506A /* UIColor.swift in Sources */,
+				C8B3FC0D1F85FC2D002EB8A0 /* MessageTableViewCell.swift in Sources */,
 				C841CCDD1F850E7A007CD422 /* RegisterViewController.swift in Sources */,
 				C88FFE9E1F84D24B0006506A /* BaseViewController.swift in Sources */,
 				C88FFEA41F84D52F0006506A /* AppDelegate.swift in Sources */,
 				C8EA65AB1F85DD4E0067B96C /* String.swift in Sources */,
 				C841CCDB1F850E6C007CD422 /* LoginViewController.swift in Sources */,
 				C8165DA91F84DF52004A258F /* MainViewController.swift in Sources */,
+				C8B3FC111F85FF0E002EB8A0 /* MessageInputBarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
