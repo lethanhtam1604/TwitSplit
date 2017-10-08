@@ -35,6 +35,11 @@
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Ggg-oF-mJ0">
+                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" red="0.95686274510000002" green="0.72156862749999995" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -52,6 +57,7 @@
                         <viewLayoutGuide key="safeArea" id="fas-a0-Tf7"/>
                     </view>
                     <connections>
+                        <outlet property="indicator" destination="Ggg-oF-mJ0" id="4a6-rD-QO3"/>
                         <outlet property="messageInputBarView" destination="1tW-RZ-NQ8" id="VJx-6v-0kG"/>
                         <outlet property="searchBar" destination="KfI-5D-Nat" id="hrO-jl-If6"/>
                         <outlet property="tableView" destination="8Ne-bL-PuL" id="Dwm-pK-IxH"/>

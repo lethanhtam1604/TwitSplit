@@ -31,7 +31,7 @@ class MessagesPresenter: NSObject {
     }
     
     func splitMessage(_ message: String) {
-        
+        messagesView?.startLoading()
         // Split the message on background thread
         DispatchQueue.global().async {
             let twitterResult = self.twitterAlgorithm.twitterSplit(message)
@@ -39,6 +39,7 @@ class MessagesPresenter: NSObject {
             // Update result of the message on main thread
             DispatchQueue.main.async {
                 self.messagesView?.splitMessageCompleted(twitterResult)
+                self.messagesView?.finishLoading()
             }
         }
     }

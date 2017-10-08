@@ -13,6 +13,7 @@ class MessagesViewController: BaseViewController {
     // MARK: - Outlet
     @IBOutlet fileprivate weak var searchBar: UISearchBar!
     @IBOutlet fileprivate weak var tableView: UITableView!
+    @IBOutlet fileprivate weak var indicator: UIActivityIndicatorView!
     @IBOutlet fileprivate weak var messageInputBarView: MessageInputBarView!
     
     // MARK: - Variable
@@ -46,11 +47,11 @@ extension MessagesViewController: MessageInputBarDelegate {
 extension MessagesViewController: MessagesView {
     
     func startLoading() {
-        
+        indicator.startAnimating()
     }
     
     func finishLoading() {
-        
+        indicator.stopAnimating()
     }
     
     func splitMessageCompleted(_ twitterResult: TwitterResult) {
