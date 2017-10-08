@@ -51,6 +51,7 @@ class TwitterAlgorithm: NSObject {
     }
     
     // Mark: - Split the message into parts
+    // Time complexity: O(N) with N is number of characters of the message
     fileprivate func processMessage(_ message: String) -> TwitterResult {
         
         // Estimate number of digits of indicator
@@ -68,6 +69,7 @@ class TwitterAlgorithm: NSObject {
             break
         }
         
+        // Return result
         let messages = twitterParts.map { $0.build() }
         return TwitterResult.success(messages)
     }
@@ -81,7 +83,7 @@ class TwitterAlgorithm: NSObject {
         twitterParts = []
         
         // Number of characters of indicator and whitespace (EX: "1/1 ")
-        var indicatorCharacterCount = numberOfDigits(indexPart) + 1 + K + 1 // 1 first is "/" and 1 second is white space
+        var indicatorCharacterCount = numberOfDigits(indexPart) + 1 + K + 1 // 1 first is "/" character and 1 second is white space
 
         // Init indexBegin and indexEnd
         var indexBegin = 0
@@ -90,18 +92,17 @@ class TwitterAlgorithm: NSObject {
         // indexBegin is first index of message that we need to split
         // indexEnd is end index of message that we need to split
         // For example the following message: "I can't believe Tweeter now supports chunking my messages, so I don't have to do it myself."
-        // The First: indexBegin = 0, indexEnd = indexBegin + 50 - Number of characters of indicator and whitespace ("1/K " = 4) = 46. And then we run from indexEnd to indexBegin to find index that is index of the whitespace (indexWhiteSpace) and split the message at between indexBegin and indexWhiteSpace
+        // The First: indexBegin = 0, indexEnd = indexBegin + 50 - Number of characters of indicator and whitespace ("1/K " = 4) = 46. And then we run from indexEnd to indexBegin to find white space index (indexWhiteSpace) and split the message between indexBegin and indexWhiteSpace
         // The Second: indexBegin = indexWhiteSpace + 1, indexEnd = indexBegin + 50 - Number of characters of indicator and whitespace ("2/K "). The we slit the message like the first step.
         // The Third: indexBegin = indexWhiteSpace + 1, indexEnd = indexBegin + 50 - Number of characters of indicator and whitespace ("3/K "). The we slit the message like the first step.
         // And so on...
         
-        // Time complexity: O(N) - N is number of characters of the message
         while indexEnd < message.count {
             
             var indexWhiteSpace = 0
             var isExcess = true
             
-            // we run from indexEnd to indexBegin to find index that is index of the whitespace
+            // we run from indexEnd to indexBegin to find index of the whitespace
             for index in stride(from: indexEnd, to: indexBegin, by: -1) {
                 if message[index] == " " {
                     isExcess = false
@@ -126,7 +127,7 @@ class TwitterAlgorithm: NSObject {
                 indexBegin = indexWhiteSpace + 1
                 
                 // Update indicatorCharacterCount value
-                indicatorCharacterCount = numberOfDigits(indexPart) + 1 + K + 1 // 1 first is "/" and 1 second is white space
+                indicatorCharacterCount = numberOfDigits(indexPart) + 1 + K + 1
 
                 // Update indexEnd value
                 indexEnd = indexBegin + TwitterValue.maxTwitterCharacterCount - indicatorCharacterCount
@@ -134,6 +135,7 @@ class TwitterAlgorithm: NSObject {
                 return ResultSplit.excess
             }
             
+            // Split the message error at the first time and we will split the message at the second time by increasing K by 1
             if numberOfDigits(indexPart) > K {
                 return ResultSplit.error
             }
