@@ -13,9 +13,11 @@ class MessagesViewController: BaseViewController {
     // MARK: - Outlet
     @IBOutlet fileprivate weak var searchBar: UISearchBar!
     @IBOutlet fileprivate weak var tableView: UITableView!
+    @IBOutlet fileprivate weak var messageInputBarView: MessageInputBarView!
     
     // MARK: - Variable
     fileprivate let messagesPresenter = MessagesPresenter()
+    fileprivate var twitters: [Twitter] = []
     
     // MARK: - View Cycle
     override func viewDidLoad() {
@@ -24,12 +26,19 @@ class MessagesViewController: BaseViewController {
         initCommon()
         setupSearchBar()
         setupTableView()
-        messagesPresenter.attachView(view: self)
     }
     
     // Mark: - Memory Warning
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+}
+
+// Mark: - MessageInputBarDelegate
+extension MessagesViewController: MessageInputBarDelegate {
+    
+    func actionTapToSendButton() {
+        messagesPresenter.splitMessage(messageInputBarView.getMessage())
     }
 }
 
@@ -44,8 +53,22 @@ extension MessagesViewController: MessagesView {
         
     }
     
-    func splitMessage() {
-        
+    func splitMessageCompleted(_ twitterResult: TwitterResult) {
+        switch twitterResult {
+        case .error(let error):
+            // Rhe message can't split -> Show error
+            let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+            showDetailViewController(alert, sender: nil)
+        case .success(let messages):
+            // Reload data for tableview
+            twitters.append(contentsOf: messages.map { Twitter(User("Thanh Tam", "lethanhtam1604@gmail.com", "0984002084"), $0) })
+            self.tableView.reloadData()
+            
+            // Move to bottom of tableview
+            let indexPath = NSIndexPath(row: twitters.count - 1, section: 0)
+            self.tableView.scrollToRow(at: indexPath as IndexPath, at: .top, animated: true)
+        }
     }
 }
 
@@ -54,6 +77,8 @@ extension MessagesViewController {
     
     fileprivate func initCommon() {
         title = "messages".uppercased()
+        messageInputBarView.delegate = self
+        messagesPresenter.attachView(view: self)
     }
     
     fileprivate func setupSearchBar() {
@@ -81,7 +106,7 @@ extension MessagesViewController {
     fileprivate func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.separatorColor = Global.colorSeparator
+        tableView.separatorColor = Global.colorLine
         let cellNib = UINib(nibName: MessageTableViewCell.kCellId, bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: MessageTableViewCell.kCellId)
         tableView.tableFooterView = UIView()
@@ -97,7 +122,7 @@ extension MessagesViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return twitters.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -106,7 +131,7 @@ extension MessagesViewController: UITableViewDataSource {
         cell.preservesSuperviewLayoutMargins = false
         cell.separatorInset = UIEdgeInsets.zero
         
-        cell.bindingData()
+        cell.bindingData(twitters[indexPath.row])
         
         return cell
     }
@@ -117,7 +142,7 @@ extension MessagesViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let cell = tableView.dequeueReusableCell(withIdentifier: MessageTableViewCell.kCellId) as! MessageTableViewCell  //swiftlint:disable:this force_cast
-        cell.bindingDataHeightForCell()
+        cell.bindingDataHeightForCell(twitters[indexPath.row])
         
         return cell.heightForCell()
     }

@@ -12,14 +12,16 @@ import UIKit
 protocol MessagesView: class {
     func startLoading()
     func finishLoading()
-    func splitMessage()
+    func splitMessageCompleted(_ twitterResult: TwitterResult)
 }
 
 // Mark: - MessagesPresenter is a mediator between the MessagesViewControler and the Model
 class MessagesPresenter: NSObject {
     
+    // Mark: - Variables
     weak fileprivate var messagesView: MessagesView?
-    
+    fileprivate let twitterAlgorithm = TwitterAlgorithm()
+
     func attachView(view: MessagesView) {
         messagesView = view
     }
@@ -28,7 +30,16 @@ class MessagesPresenter: NSObject {
         messagesView = nil
     }
     
-    func splitMessage() {
-        messagesView?.splitMessage()
+    func splitMessage(_ message: String) {
+        
+        // Split the message on background thread
+        DispatchQueue.global().async {
+            let twitterResult = self.twitterAlgorithm.twitterSplit(message)
+            
+            // Update result of the message on main thread
+            DispatchQueue.main.async {
+                self.messagesView?.splitMessageCompleted(twitterResult)
+            }
+        }
     }
 }

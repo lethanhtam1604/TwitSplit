@@ -52,6 +52,7 @@
                         <viewLayoutGuide key="safeArea" id="fas-a0-Tf7"/>
                     </view>
                     <connections>
+                        <outlet property="messageInputBarView" destination="1tW-RZ-NQ8" id="VJx-6v-0kG"/>
                         <outlet property="searchBar" destination="KfI-5D-Nat" id="hrO-jl-If6"/>
                         <outlet property="tableView" destination="8Ne-bL-PuL" id="Dwm-pK-IxH"/>
                     </connections>

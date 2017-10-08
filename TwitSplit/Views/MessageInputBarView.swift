@@ -8,16 +8,20 @@
 
 import UIKit
 
+protocol MessageInputBarDelegate: class {
+    func actionTapToSendButton()
+}
+
 @IBDesignable
 class MessageInputBarView: UIView {
 
     // Mark: - Outlet
-
     @IBOutlet fileprivate var contentView: MessageInputBarView!
     @IBOutlet fileprivate weak var inputTextView: UITextView!
     @IBOutlet fileprivate weak var sendButton: UIButton!
     
     // Mark: - Variables
+    weak var delegate: MessageInputBarDelegate?
     
     // Mark: - View Cycle
     override init(frame: CGRect) {
@@ -34,11 +38,11 @@ class MessageInputBarView: UIView {
     }
     
     @IBAction func actionTapToSendButton(_ sender: Any) {
-    
+        delegate?.actionTapToSendButton()
     }
 }
 
-// Mark: - Private
+// Mark: - Setup MessageInputBarView
 extension MessageInputBarView {
     
     fileprivate func commoninit() {
@@ -48,6 +52,14 @@ extension MessageInputBarView {
         addSubview(contentView)
     
         inputTextView.layer.cornerRadius = 5
+    }
+}
+
+// Mark: - Get values
+extension MessageInputBarView {
+    
+    func getMessage() -> String {
+        return inputTextView.text
     }
 }
 
