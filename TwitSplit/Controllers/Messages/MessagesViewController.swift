@@ -15,6 +15,7 @@ class MessagesViewController: BaseViewController {
     @IBOutlet fileprivate weak var tableView: UITableView!
     @IBOutlet fileprivate weak var indicator: UIActivityIndicatorView!
     @IBOutlet fileprivate weak var messageInputBarView: MessageInputBarView!
+    @IBOutlet fileprivate weak var inputBarViewHeightConstraint: NSLayoutConstraint!
     
     // MARK: - Variable
     fileprivate let messagesPresenter = MessagesPresenter()
@@ -40,6 +41,7 @@ extension MessagesViewController: MessageInputBarDelegate {
     
     func actionTapToSendButton() {
         messagesPresenter.splitMessage(messageInputBarView.getMessage())
+        messageInputBarView.setEmptyMessage()
     }
 }
 
@@ -78,8 +80,8 @@ extension MessagesViewController {
     
     fileprivate func initCommon() {
         title = "messages".uppercased()
-        messageInputBarView.delegate = self
         messagesPresenter.attachView(view: self)
+        messageInputBarView.delegate = self
     }
     
     fileprivate func setupSearchBar() {
@@ -92,7 +94,7 @@ extension MessagesViewController {
         searchBar.barTintColor = UIColor.clear
         searchBar.tintColor = Global.colorMain
         searchBar.endEditing(true)
-        
+
         for view in searchBar.subviews {
             for subview in view.subviews {
                 if subview.isKind(of: UITextField.self) {
@@ -112,6 +114,8 @@ extension MessagesViewController {
         tableView.register(cellNib, forCellReuseIdentifier: MessageTableViewCell.kCellId)
         tableView.tableFooterView = UIView()
         tableView.backgroundColor = UIColor.clear
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 44
     }
 }
 
@@ -140,13 +144,6 @@ extension MessagesViewController: UITableViewDataSource {
 
 // Mark: - TableViewDelegate
 extension MessagesViewController: UITableViewDelegate {
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let cell = tableView.dequeueReusableCell(withIdentifier: MessageTableViewCell.kCellId) as! MessageTableViewCell  //swiftlint:disable:this force_cast
-        cell.bindingDataHeightForCell(twitters[indexPath.row])
-        
-        return cell.heightForCell()
-    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -165,15 +162,24 @@ extension MessagesViewController: UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-
+        searchMessage()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         searchBar.text = ""
+        searchMessage()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
+    }
+}
+
+// Mark: Search messsage
+extension MessagesViewController {
+
+    fileprivate func searchMessage() {
+        
     }
 }

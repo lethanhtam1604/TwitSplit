@@ -4,7 +4,7 @@ use_frameworks!
 
 #Pods
 def shared_pods
-    
+    pod 'IQKeyboardManagerSwift'
 end
 
 #TwitSplit App

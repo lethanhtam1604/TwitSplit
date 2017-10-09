@@ -28,6 +28,7 @@
 		C816D5FD1F84CA3800128768 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C816D5FC1F84CA3800128768 /* LaunchScreen.storyboard */; };
 		C816D5FF1F84CA5300128768 /* Messages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C816D5FE1F84CA5300128768 /* Messages.storyboard */; };
 		C8249A8A1F8A716C002ECB8F /* TwitSplitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8249A891F8A716C002ECB8F /* TwitSplitTests.swift */; };
+		C8249AA91F8A9645002ECB8F /* GrowingTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8249AA81F8A9645002ECB8F /* GrowingTextView.swift */; };
 		C833F9761F88CFCE00F7EB75 /* TwitterPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C833F9751F88CFCE00F7EB75 /* TwitterPart.swift */; };
 		C841CCD81F850E45007CD422 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C841CCD71F850E45007CD422 /* Authentication.storyboard */; };
 		C841CCDB1F850E6C007CD422 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C841CCDA1F850E6C007CD422 /* LoginViewController.swift */; };
@@ -86,6 +87,8 @@
 		C8249A871F8A716C002ECB8F /* TwitSplitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TwitSplitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8249A891F8A716C002ECB8F /* TwitSplitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitSplitTests.swift; sourceTree = "<group>"; };
 		C8249A8B1F8A716C002ECB8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C8249A9D1F8A7ECB002ECB8F /* TwitSplit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TwitSplit-Bridging-Header.h"; sourceTree = "<group>"; };
+		C8249AA81F8A9645002ECB8F /* GrowingTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrowingTextView.swift; sourceTree = "<group>"; };
 		C833F9751F88CFCE00F7EB75 /* TwitterPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterPart.swift; sourceTree = "<group>"; };
 		C841CCD71F850E45007CD422 /* Authentication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
 		C841CCDA1F850E6C007CD422 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -205,6 +208,30 @@
 			path = TwitSplitTests;
 			sourceTree = "<group>";
 		};
+		C8249A951F8A7E50002ECB8F /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				C8249AA71F8A9623002ECB8F /* GrowingTextView */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		C8249A9C1F8A7E9A002ECB8F /* BridgingHeader */ = {
+			isa = PBXGroup;
+			children = (
+				C8249A9D1F8A7ECB002ECB8F /* TwitSplit-Bridging-Header.h */,
+			);
+			path = BridgingHeader;
+			sourceTree = "<group>";
+		};
+		C8249AA71F8A9623002ECB8F /* GrowingTextView */ = {
+			isa = PBXGroup;
+			children = (
+				C8249AA81F8A9645002ECB8F /* GrowingTextView.swift */,
+			);
+			path = GrowingTextView;
+			sourceTree = "<group>";
+		};
 		C841CCD91F850E59007CD422 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
@@ -217,6 +244,7 @@
 		C848854F1F837E1D0032FA3B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C8249A9C1F8A7E9A002ECB8F /* BridgingHeader */,
 				C84885521F837E5A0032FA3B /* CoreData */,
 				C84885511F837E520032FA3B /* Assets */,
 				C84885501F837E4B0032FA3B /* Fonts */,
@@ -368,6 +396,7 @@
 		C8BE169F1F836EB0001C383A /* TwitSplit */ = {
 			isa = PBXGroup;
 			children = (
+				C8249A951F8A7E50002ECB8F /* Libraries */,
 				C80C5EE51F86647500EC0016 /* Manager */,
 				C88FFE8C1F84D0730006506A /* AppDelegate */,
 				C88FFE671F84CB910006506A /* Extensions */,
@@ -440,6 +469,7 @@
 					};
 					C8BE169C1F836EB0001C383A = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -500,9 +530,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-TwitSplit/Pods-TwitSplit-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -577,6 +610,7 @@
 				C88FFE9E1F84D24B0006506A /* BaseViewController.swift in Sources */,
 				C80C5EED1F867B7700EC0016 /* TwitterResult.swift in Sources */,
 				C88FFEA41F84D52F0006506A /* AppDelegate.swift in Sources */,
+				C8249AA91F8A9645002ECB8F /* GrowingTextView.swift in Sources */,
 				C80C5EEB1F867A0600EC0016 /* Message.swift in Sources */,
 				C8EA65AB1F85DD4E0067B96C /* String.swift in Sources */,
 				C841CCDB1F850E6C007CD422 /* LoginViewController.swift in Sources */,
@@ -741,11 +775,14 @@
 			baseConfigurationReference = E57849FE1335DA2F9D757D3D /* Pods-TwitSplit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TwitSplit/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Tam.TwitSplit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TwitSplit/Resources/BridgingHeader/TwitSplit-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -756,11 +793,13 @@
 			baseConfigurationReference = E214A6852642F3B87E517D9E /* Pods-TwitSplit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TwitSplit/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Tam.TwitSplit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TwitSplit/Resources/BridgingHeader/TwitSplit-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

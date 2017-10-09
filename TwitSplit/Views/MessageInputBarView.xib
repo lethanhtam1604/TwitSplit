@@ -12,6 +12,9 @@
         <array key="OpenSans-bold.ttf">
             <string>OpenSans-Bold</string>
         </array>
+        <array key="OpenSans.ttf">
+            <string>OpenSans</string>
+        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MessageInputBarView" customModule="TwitSplit" customModuleProvider="target">
@@ -40,20 +43,18 @@
                         <action selector="actionTapToSendButton:" destination="-1" eventType="touchUpInside" id="LqR-hG-HSF"/>
                     </connections>
                 </button>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qL8-XG-GEU">
-                    <rect key="frame" x="10" y="15" width="298" height="40"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qL8-XG-GEU" customClass="GrowingTextView" customModule="TwitSplit" customModuleProvider="target">
+                    <rect key="frame" x="10" y="10" width="298" height="45"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="40" id="ZXz-dH-0RU"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="15"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES"/>
                 </textView>
             </subviews>
             <color key="backgroundColor" red="0.90196078430000004" green="0.90588235289999997" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ZkM-K8-Wj4" secondAttribute="trailing" constant="10" id="HJr-cn-436"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="qL8-XG-GEU" secondAttribute="bottom" constant="10" id="dPy-RM-N49"/>
+                <constraint firstItem="qL8-XG-GEU" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="je3-qp-91c"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ZkM-K8-Wj4" secondAttribute="bottom" constant="10" id="kP8-if-TSD"/>
                 <constraint firstItem="qL8-XG-GEU" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="kln-oy-812"/>
                 <constraint firstItem="ZkM-K8-Wj4" firstAttribute="leading" secondItem="qL8-XG-GEU" secondAttribute="trailing" id="roC-zd-dte"/>
