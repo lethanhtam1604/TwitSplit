@@ -65,7 +65,7 @@ extension MessagesViewController: MessagesView {
             showDetailViewController(alert, sender: nil)
         case .success(let messages):
             // Reload data for tableview
-            twitters.append(contentsOf: messages.map { Twitter(User("Thanh-Tam Le", "lethanhtam1604@gmail.com", "0984002084", "https://github.com/lethanhtam1604/TwitSplit/blob/master/Screenshots/Messages.png"), $0) })
+            twitters.append(contentsOf: messages.map { Twitter(User("Thanh-Tam Le", "lethanhtam1604@gmail.com", "0984002084", "https://raw.githubusercontent.com/lethanhtam1604/TwitSplit/master/TwitSplit/Resources/Avatar/MyAvatar.jpg"), $0) })
             self.tableView.reloadData()
             
             // Move to bottom of tableview
