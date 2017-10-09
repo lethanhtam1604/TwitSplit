@@ -79,7 +79,6 @@ extension MessagesViewController: MessagesView {
 extension MessagesViewController {
     
     fileprivate func initCommon() {
-        title = "messages".uppercased()
         messagesPresenter.attachView(view: self)
         messageInputBarView.delegate = self
     }

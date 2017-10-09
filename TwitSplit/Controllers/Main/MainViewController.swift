@@ -99,11 +99,19 @@ extension MainViewController: UITabBarControllerDelegate {
     
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         
+        // Move tableview to top when tapping tab bar messages item
         if item.tag == 1 && previousTag == 1 {
             if let tableView = messagesViewController.getTableView() {
                 let indexPath = NSIndexPath(row: 0, section: 0)
                 tableView.scrollToRow(at: indexPath as IndexPath, at: .top, animated: true)
             }
+        }
+        
+        // Set title for tab bar item
+        if item.tag == 1 {
+            title = "messages".uppercased()
+        } else if item.tag == 2 {
+            title = "settings".uppercased()
         }
         
         previousTag = item.tag

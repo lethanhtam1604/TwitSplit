@@ -54,7 +54,6 @@ class SettingsViewController: BaseViewController {
 extension SettingsViewController {
     
     fileprivate func initCommon() {
-        title = "settings".uppercased()
         profileView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(actionTapToProfileView)))
         logoutView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(actionTapToLogoutView)))
     }
