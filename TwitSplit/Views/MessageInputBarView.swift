@@ -68,5 +68,3 @@ extension MessageInputBarView {
         inputTextView.text = ""
     }
 }
-
-

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: UITabBarController, UINavigationControllerDelegate {
+class MainViewController: UITabBarController {
     
     // Mark: - Variable
     fileprivate var messagesViewController: MessagesViewController!
@@ -38,11 +38,10 @@ class MainViewController: UITabBarController, UINavigationControllerDelegate {
         case WorkFlow.login.hashValue:
             let storyboard = UIStoryboard(name: "Authentication", bundle: nil)
             if let viewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
-                parent?.present(viewController, animated: true, completion: nil)
+                navigationController?.pushViewController(viewController, animated: false)
             }
             break
         case WorkFlow.mainScreen.hashValue:
-            view.isHidden = false
             selectedIndex = 0
             break
         default:
@@ -62,8 +61,7 @@ class MainViewController: UITabBarController, UINavigationControllerDelegate {
 extension MainViewController {
     
     fileprivate func initCommon() {
-        view.isHidden = true
-        navigationController?.isNavigationBarHidden = true
+        title = "messages".uppercased()
         view.tintColor = Global.colorMain
         tabBar.shadowImage = UIImage()
         tabBar.barTintColor = UIColor.white
@@ -88,13 +86,11 @@ extension MainViewController {
         
         let channelsBarItem = UITabBarItem(title: NSLocalizedString("channels", comment: "").uppercased(), image: UIImage(named: "ic_channel"), tag: 1)
         messagesViewController.tabBarItem = channelsBarItem
-        let nc1 = UINavigationController(rootViewController: messagesViewController)
         
         let settingsBarItem = UITabBarItem(title: NSLocalizedString("settings", comment: "").uppercased(), image: UIImage(named: "ic_setting"), tag: 2)
         settingsViewController.tabBarItem = settingsBarItem
-        let nc2 = UINavigationController(rootViewController: settingsViewController)
         
-        viewControllers = [nc1, nc2]
+        viewControllers = [messagesViewController, settingsViewController]
     }
 }
 
@@ -113,4 +109,3 @@ extension MainViewController: UITabBarControllerDelegate {
         previousTag = item.tag
     }
 }
-

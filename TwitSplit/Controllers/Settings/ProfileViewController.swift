@@ -53,4 +53,3 @@ extension ProfileViewController {
         self.navigationItem.rightBarButtonItem = saveBarButton
     }
 }
-

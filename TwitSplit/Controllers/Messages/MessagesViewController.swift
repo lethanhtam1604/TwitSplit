@@ -94,6 +94,8 @@ extension MessagesViewController {
         searchBar.barTintColor = UIColor.clear
         searchBar.tintColor = Global.colorMain
         searchBar.endEditing(true)
+        searchBar.translatesAutoresizingMaskIntoConstraints = false
+        searchBar.preservesSuperviewLayoutMargins = true
 
         for view in searchBar.subviews {
             for subview in view.subviews {

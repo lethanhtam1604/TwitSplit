@@ -42,6 +42,7 @@ class SplashScreenViewController: BaseViewController {
 extension SplashScreenViewController {
     
     fileprivate func initCommon() {
+        navigationItem.setHidesBackButton(true, animated: false)
         view.backgroundColor = UIColor.white
         titleLabel.increaseSize()
         Global.currentWorkFlow = WorkFlow.login.hashValue

@@ -43,7 +43,7 @@ class LoginViewController: BaseViewController {
     @IBAction func actionTapToRegisterButton(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Authentication", bundle: nil)
         if let viewController = storyboard.instantiateViewController(withIdentifier: "RegisterViewController") as? RegisterViewController {
-            present(viewController, animated: true, completion: nil)
+            navigationController?.pushViewController(viewController, animated: true)
         }
     }
 }
@@ -61,7 +61,7 @@ extension LoginViewController: LoginView {
 
     func login() {
         Global.currentWorkFlow = WorkFlow.mainScreen.hashValue
-        dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: false)
     }
 }
 
@@ -69,6 +69,7 @@ extension LoginViewController: LoginView {
 extension LoginViewController {
     
     fileprivate func initCommon() {
+        navigationItem.setHidesBackButton(true, animated: false)
         view.backgroundColor = UIColor.white
         loginButton.layer.cornerRadius = 5
         registerButton.layer.borderColor = Global.colorMain.cgColor
@@ -77,29 +78,6 @@ extension LoginViewController {
         
         emailField.delegate = self
         passwordField.delegate = self
-    }
-    
-    fileprivate func checkInput(textField: UITextField, value: String?) -> Bool {
-        switch textField {
-        case emailField:
-            if let newValue = value, newValue.isValidEmail() {
-                errorLabel.text = nil
-                emailBorder.backgroundColor = Global.colorSeparator
-                return true
-            }
-            errorLabel.text = "Invalid Email"
-            emailBorder.backgroundColor = UIColor.red.withAlphaComponent(0.8)
-            
-        default:
-            if let newValue = value, newValue.isValidPassword() {
-                errorLabel.text = nil
-                passwordBorder.backgroundColor = Global.colorSeparator
-                return true
-            }
-            errorLabel.text = "Invalid password"
-            passwordBorder.backgroundColor = UIColor.red.withAlphaComponent(0.8)
-        }
-        return false
     }
 }
 
@@ -125,6 +103,29 @@ extension LoginViewController: UITextFieldDelegate {
                 textField.resignFirstResponder()
                 return true
             }
+        }
+        return false
+    }
+    
+    fileprivate func checkInput(textField: UITextField, value: String?) -> Bool {
+        switch textField {
+        case emailField:
+            if let newValue = value, newValue.isValidEmail() {
+                errorLabel.text = nil
+                emailBorder.backgroundColor = Global.colorSeparator
+                return true
+            }
+            errorLabel.text = "Invalid Email"
+            emailBorder.backgroundColor = UIColor.red.withAlphaComponent(0.8)
+            
+        default:
+            if let newValue = value, newValue.isValidPassword() {
+                errorLabel.text = nil
+                passwordBorder.backgroundColor = Global.colorSeparator
+                return true
+            }
+            errorLabel.text = "Invalid password"
+            passwordBorder.backgroundColor = UIColor.red.withAlphaComponent(0.8)
         }
         return false
     }

@@ -41,7 +41,7 @@ class SettingsViewController: BaseViewController {
             //write func for logout here...
             let storyboard = UIStoryboard(name: "Authentication", bundle: nil)
             if let viewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
-                self.present(viewController, animated: true, completion: nil)
+                self.navigationController?.pushViewController(viewController, animated: false)
             }
         }
         alertController.addAction(cancelAction)
@@ -59,4 +59,3 @@ extension SettingsViewController {
         logoutView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(actionTapToLogoutView)))
     }
 }
-

@@ -30,6 +30,7 @@ class RegisterViewController: BaseViewController {
         super.viewDidLoad()
         
         initCommon()
+        setupBarButtonItems()
         registerPresenter.attachView(view: self)
     }
     
@@ -44,7 +45,11 @@ class RegisterViewController: BaseViewController {
     }
     
     @IBAction func actionTapToLoginButton(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func actionTapToBackBtn() {
+        navigationController?.popViewController(animated: true)
     }
 }
 
@@ -61,7 +66,7 @@ extension RegisterViewController: RegisterView {
     
     func register() {
         Global.currentWorkFlow = WorkFlow.mainScreen.hashValue
-        presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+        navigationController?.popToRootViewController(animated: false)
     }
 }
 
@@ -76,6 +81,54 @@ extension RegisterViewController {
         emailField.delegate = self
         phoneField.delegate = self
         passwordField.delegate = self
+        
+        //enable swipe back when it changed leftBarButtonItem
+        navigationController?.interactivePopGestureRecognizer?.delegate = nil
+    }
+    
+    fileprivate func setupBarButtonItems() {
+        let backBarButton = UIBarButtonItem(image: UIImage(named: "ic_nav_back"), style: .done, target: self, action: #selector(actionTapToBackBtn))
+        backBarButton.tintColor = UIColor.black
+        self.navigationItem.leftBarButtonItem = backBarButton
+    }
+}
+
+// Mark: - TextField Delegate
+extension RegisterViewController: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let newString = NSString(string: textField.text!).replacingCharacters(in: range, with: string)
+        _ = checkInput(textField: textField, value: newString)
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case nameField:
+            if checkInput(textField: textField, value: textField.text) {
+                textField.resignFirstResponder()
+                emailField.becomeFirstResponder()
+                return true
+            }
+        case emailField:
+            if checkInput(textField: textField, value: textField.text) {
+                textField.resignFirstResponder()
+                phoneField.becomeFirstResponder()
+                return true
+            }
+        case phoneField:
+            if checkInput(textField: textField, value: textField.text) {
+                textField.resignFirstResponder()
+                passwordField.becomeFirstResponder()
+                return true
+            }
+        default:
+            if checkInput(textField: textField, value: textField.text) {
+                textField.resignFirstResponder()
+                return true
+            }
+        }
+        return false
     }
     
     fileprivate func checkInput(textField: UITextField, value: String?) -> Bool {
@@ -115,45 +168,6 @@ extension RegisterViewController {
             }
             errorLabel.text = "Invalid password"
             passwordBorder.backgroundColor = UIColor.red.withAlphaComponent(0.8)
-        }
-        return false
-    }
-}
-
-// Mark: - TextField Delegate
-extension RegisterViewController: UITextFieldDelegate {
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let newString = NSString(string: textField.text!).replacingCharacters(in: range, with: string)
-        _ = checkInput(textField: textField, value: newString)
-        return true
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        switch textField {
-        case nameField:
-            if checkInput(textField: textField, value: textField.text) {
-                textField.resignFirstResponder()
-                emailField.becomeFirstResponder()
-                return true
-            }
-        case emailField:
-            if checkInput(textField: textField, value: textField.text) {
-                textField.resignFirstResponder()
-                phoneField.becomeFirstResponder()
-                return true
-            }
-        case phoneField:
-            if checkInput(textField: textField, value: textField.text) {
-                textField.resignFirstResponder()
-                passwordField.becomeFirstResponder()
-                return true
-            }
-        default:
-            if checkInput(textField: textField, value: textField.text) {
-                textField.resignFirstResponder()
-                return true
-            }
         }
         return false
     }
