@@ -1,5 +1,15 @@
-TwitSplit Assignment
+# TwitSplit Assignment
+This application Tweeter allows users to post short messages limited to 50 characters each. Sometimes, users get excited and write messages longer than 50 characters. Instead of rejecting these messages, we would like to add a new feature that will split the message into parts and send multiple messages on the user's behalf, all of them meeting the 50 character requirement.
 
+Example: Suppose the user wants to send the following message:
+"I can't believe Tweeter now supports chunking my messages, so I don't have to do it myself." (without quotes)
+
+This is 91 characters excluding the surrounding quotes. When the user presses send, it will send the following messages:
+
++ "1/2 I can't believe Tweeter now supports chunking" (without quotes) 
++ "2/2 my messages, so I don't have to do it myself." (without quotes)
+
+Each message is now 49 characters, each within the allowed limit.
 
 # Application Development Environment
 
@@ -37,18 +47,19 @@ Used Auto Layout to design User of Interface for supporting multiple device.
 + Views: It contains custom cell view
 + Resources: Fonts, Assets, Localizable.strings, etc
 
-# Message Splitter Algorithms
-+ Time complexity: O(N) with N is number of characters of the message
+# Message Splitter Algorithm
   ## My approach:
-  + The First: Try split the message with number of digits K that is Number of digits of (Length of message / max Twitter Character Count (50))
-  + The Second: If we can't split, we increase K value by 1 (K = K + 1) and try split the message again. If we can't get split return nil, otherwise return list of message parts that is splitted
-  
+  + Length of a message part = Length of indicator and whitespace + Length of text <= 50 (EX: "IndexPart/TotalPart" + " " +  text). But we actually don't know total part. So, I determined total part the following:
+  + The first: Estimate number of digits of total part: K = numberOfDigits(message.count / 50). And then we can calculate length of indicator and whitespace: IndicatorCharacterCount = numberOfDigits(indexPart) + 1 + K + 1 // 1 first is "/" character and 1 second is white space
+  + The Second: Try to split the message with K.
+  + The Third: If we can't split the message (Length of total part is greater than K), we increase K value by 1 (K = K + 1) and try split the message again. If we can't get split return nil, otherwise return list of message parts that is splitted
+  + Time complexity: O(N) with N is number of characters of the message
   
   ```js
   
     fileprivate func processMessage(_ message: String) -> TwitterResult {
         
-        // Estimate number of digits of indicator
+        // Estimate number of digits of total part
         var K = numberOfDigits(message.count / TwitterValue.maxTwitterCharacterCount)
 
         // Try to split the message first with K
@@ -157,5 +168,4 @@ Used Auto Layout to design User of Interface for supporting multiple device.
     
   ```
 # ScreenShots
-
-
+<img src="https://github.com/lethanhtam1604/TwitSplit/blob/master/Screenshots/Messages.png" width="400" height="400"> <img src="https://github.com/lethanhtam1604/TwitSplit/blob/master/Screenshots/Settings.png" width="400" height="400">
