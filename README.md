@@ -1,4 +1,4 @@
-TwitSplit Assignment
+# TwitSplit Assignment
 
 
 # Application Development Environment
@@ -37,7 +37,7 @@ Used Auto Layout to design User of Interface for supporting multiple device.
 + Views: It contains custom cell view
 + Resources: Fonts, Assets, Localizable.strings, etc
 
-# Message Splitter Algorithms
+# Message Splitter Algorithm
 + Time complexity: O(N) with N is number of characters of the message
   ## My approach:
   + The First: Try split the message with number of digits K that is Number of digits of (Length of message / max Twitter Character Count (50))
@@ -157,5 +157,4 @@ Used Auto Layout to design User of Interface for supporting multiple device.
     
   ```
 # ScreenShots
-
-
+<img src="https://github.com/lethanhtam1604/TwitSplit/blob/master/Screenshots/Messages.png" width="400" height="400"> <img src="https://github.com/lethanhtam1604/TwitSplit/blob/master/Screenshots/Settings.png" width="400" height="400">
