@@ -182,4 +182,11 @@ extension MessagesViewController {
     fileprivate func searchMessage() {
         
     }
+    
+    func getTableView() -> UITableView? {
+        if tableView != nil {
+            return tableView
+        }
+        return nil
+    }
 }

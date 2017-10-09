@@ -104,7 +104,10 @@ extension MainViewController: UITabBarControllerDelegate {
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         
         if item.tag == 1 && previousTag == 1 {
-            
+            if let tableView = messagesViewController.getTableView() {
+                let indexPath = NSIndexPath(row: 0, section: 0)
+                tableView.scrollToRow(at: indexPath as IndexPath, at: .top, animated: true)
+            }
         }
         
         previousTag = item.tag
