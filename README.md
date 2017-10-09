@@ -39,7 +39,7 @@ I used this library to refactor code, setup some rules in coding such as naming 
 Used Auto Layout to design User of Interface for supporting multiple device.
 
 # App Module
-+ Managers: To manage local database
++ Managers: It contains classes for managing message splitter algorithm
 + Models: Model objects encapsulate the data specific to an application and define the logic and computation that manipulate and process that data
 + Presenter: It contains business logic for each controller.
 + Storyboards: It is divided into multiple storyboard to help other developer maintain UI in the future
