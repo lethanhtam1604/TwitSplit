@@ -73,6 +73,7 @@
 		C80C5EEE1F867C6300EC0016 /* Twitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Twitter.swift; sourceTree = "<group>"; };
 		C80C5EF01F867EFF00EC0016 /* TwitterAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterAlgorithm.swift; sourceTree = "<group>"; };
 		C80C5EF41F8686A200EC0016 /* TwitterValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterValue.swift; sourceTree = "<group>"; };
+		C81596A11F8B578A00BCA9C1 /* MyAvatar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = MyAvatar.jpg; sourceTree = "<group>"; };
 		C8165D9D1F84DC52004A258F /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		C8165D9F1F84DC7E004A258F /* NSAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedString.swift; sourceTree = "<group>"; };
 		C8165DA11F84DCC9004A258F /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
@@ -199,6 +200,14 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		C81B69AF1F8B554F00F63ADD /* Avatar */ = {
+			isa = PBXGroup;
+			children = (
+				C81596A11F8B578A00BCA9C1 /* MyAvatar.jpg */,
+			);
+			path = Avatar;
+			sourceTree = "<group>";
+		};
 		C8249A881F8A716C002ECB8F /* TwitSplitTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -244,6 +253,7 @@
 		C848854F1F837E1D0032FA3B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C81B69AF1F8B554F00F63ADD /* Avatar */,
 				C8249A9C1F8A7E9A002ECB8F /* BridgingHeader */,
 				C84885521F837E5A0032FA3B /* CoreData */,
 				C84885511F837E520032FA3B /* Assets */,

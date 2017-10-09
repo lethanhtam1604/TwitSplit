@@ -26,24 +26,34 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="69.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thanh-Tam" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F00-si-7he">
-                        <rect key="frame" x="10" y="10" width="300" height="23.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Thanh-Tam" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F00-si-7he">
+                        <rect key="frame" x="60" y="10" width="250" height="23.5"/>
                         <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aMd-tI-zQz">
-                        <rect key="frame" x="10" y="39" width="300" height="20.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Message" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aMd-tI-zQz">
+                        <rect key="frame" x="60" y="39" width="250" height="20.5"/>
                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="15"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MyAvatar.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="YlF-dO-syV">
+                        <rect key="frame" x="10" y="14" width="40" height="40"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="Kwm-Yd-YX9"/>
+                            <constraint firstAttribute="width" constant="40" id="LTK-XL-COR"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="F00-si-7he" firstAttribute="leading" secondItem="YlF-dO-syV" secondAttribute="trailing" constant="10" id="2lq-r0-tnJ"/>
+                    <constraint firstItem="YlF-dO-syV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="7fR-Bi-sUT"/>
                     <constraint firstAttribute="bottom" secondItem="aMd-tI-zQz" secondAttribute="bottom" constant="10" id="QgE-nt-MQu"/>
-                    <constraint firstItem="aMd-tI-zQz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="QlF-sX-rYH"/>
-                    <constraint firstItem="F00-si-7he" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Tlu-Jv-X9K"/>
                     <constraint firstItem="aMd-tI-zQz" firstAttribute="top" secondItem="F00-si-7he" secondAttribute="bottom" constant="5" id="ql0-nB-4sd"/>
+                    <constraint firstItem="YlF-dO-syV" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="tJe-d9-m99"/>
+                    <constraint firstItem="aMd-tI-zQz" firstAttribute="leading" secondItem="YlF-dO-syV" secondAttribute="trailing" constant="10" id="vfs-tI-VoC"/>
                     <constraint firstItem="F00-si-7he" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="w74-uQ-Sik"/>
                     <constraint firstAttribute="trailing" secondItem="aMd-tI-zQz" secondAttribute="trailing" constant="10" id="xQ6-iE-Yq5"/>
                     <constraint firstAttribute="trailing" secondItem="F00-si-7he" secondAttribute="trailing" constant="10" id="yuQ-A2-467"/>
@@ -51,10 +61,14 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="avatarImgView" destination="YlF-dO-syV" id="wwN-i6-v5S"/>
                 <outlet property="messageLabel" destination="aMd-tI-zQz" id="KZW-Ls-1Oj"/>
                 <outlet property="nameLabel" destination="F00-si-7he" id="Ric-7W-q3y"/>
             </connections>
             <point key="canvasLocation" x="87" y="83"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="MyAvatar.jpg" width="654" height="654"/>
+    </resources>
 </document>

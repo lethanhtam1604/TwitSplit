@@ -11,6 +11,7 @@ import UIKit
 class MessageTableViewCell: UITableViewCell {
     
     // Mark: - Outlet
+    @IBOutlet fileprivate weak var avatarImgView: UIImageView!
     @IBOutlet fileprivate weak var nameLabel: UILabel!
     @IBOutlet fileprivate weak var messageLabel: UILabel!
     
@@ -19,11 +20,14 @@ class MessageTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        avatarImgView.layer.cornerRadius = 20
     }
     
     // Mark: - Binding data for cell
     func bindingData(_ twitter: Twitter) {
         nameLabel.text = twitter.user.name
         messageLabel.text = twitter.message.text
+        avatarImgView.loadImagesUsingUrlString(urlString: twitter.user.avatar)
     }
 }
