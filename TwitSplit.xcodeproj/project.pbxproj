@@ -34,6 +34,8 @@
 		C841CCDB1F850E6C007CD422 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C841CCDA1F850E6C007CD422 /* LoginViewController.swift */; };
 		C841CCDD1F850E7A007CD422 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C841CCDC1F850E7A007CD422 /* RegisterViewController.swift */; };
 		C85C3B1A1F8480AE00A0DB3D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C85C3B191F8480AE00A0DB3D /* Main.storyboard */; };
+		C87F961F1FD542550029DFE1 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87F961E1FD542550029DFE1 /* TestViewController.swift */; };
+		C87F96211FD5426A0029DFE1 /* Test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C87F96201FD5426A0029DFE1 /* Test.storyboard */; };
 		C88508F91F84EBF000F97475 /* OpenSans-bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C85C3B121F847C4200A0DB3D /* OpenSans-bold.ttf */; };
 		C88508FA1F84EBF000F97475 /* OpenSans-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C85C3B111F847C4200A0DB3D /* OpenSans-light.ttf */; };
 		C88508FB1F84EBF000F97475 /* OpenSans-semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C85C3B131F847C4200A0DB3D /* OpenSans-semibold.ttf */; };
@@ -101,6 +103,8 @@
 		C85C3B131F847C4200A0DB3D /* OpenSans-semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-semibold.ttf"; sourceTree = "<group>"; };
 		C85C3B141F847C4200A0DB3D /* OpenSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = OpenSans.ttf; sourceTree = "<group>"; };
 		C85C3B191F8480AE00A0DB3D /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		C87F961E1FD542550029DFE1 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		C87F96201FD5426A0029DFE1 /* Test.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Test.storyboard; sourceTree = "<group>"; };
 		C88508F71F84E61C00F97475 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C88FFE921F84D1480006506A /* SplashScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashScreen.storyboard; sourceTree = "<group>"; };
 		C88FFE9D1F84D24B0006506A /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -299,6 +303,7 @@
 				C85C3B191F8480AE00A0DB3D /* Main.storyboard */,
 				C816D5FE1F84CA5300128768 /* Messages.storyboard */,
 				C8165DB31F84E089004A258F /* Settings.storyboard */,
+				C87F96201FD5426A0029DFE1 /* Test.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -306,6 +311,7 @@
 		C85C3B181F847EC100A0DB3D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C87F961D1FD53E8A0029DFE1 /* New Group */,
 				C88FFE9C1F84D2410006506A /* Utils */,
 				C8165DA31F84DEAC004A258F /* SplashScreen */,
 				C841CCD91F850E59007CD422 /* Authentication */,
@@ -314,6 +320,14 @@
 				C8165DA61F84DED9004A258F /* Settings */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		C87F961D1FD53E8A0029DFE1 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				C87F961E1FD542550029DFE1 /* TestViewController.swift */,
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		C88FFE621F84CB890006506A /* Global */ = {
@@ -527,6 +541,7 @@
 				C88FFE931F84D1480006506A /* SplashScreen.storyboard in Resources */,
 				C85C3B1A1F8480AE00A0DB3D /* Main.storyboard in Resources */,
 				C816D5FD1F84CA3800128768 /* LaunchScreen.storyboard in Resources */,
+				C87F96211FD5426A0029DFE1 /* Test.storyboard in Resources */,
 				C8165DB41F84E089004A258F /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -610,6 +625,7 @@
 				C8165DAC1F84DF6E004A258F /* MessagesViewController.swift in Sources */,
 				C80C5EF51F8686A200EC0016 /* TwitterValue.swift in Sources */,
 				C8165DA21F84DCC9004A258F /* UIImageView.swift in Sources */,
+				C87F961F1FD542550029DFE1 /* TestViewController.swift in Sources */,
 				C80C5EF11F867EFF00EC0016 /* TwitterAlgorithm.swift in Sources */,
 				C8165DB01F84DF7D004A258F /* ProfileViewController.swift in Sources */,
 				C80C5EE91F8675C000EC0016 /* User.swift in Sources */,
