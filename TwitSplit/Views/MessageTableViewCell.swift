@@ -22,6 +22,13 @@ class MessageTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         avatarImgView.layer.cornerRadius = 20
+        
+        layer.cornerRadius = 5
+        layer.shadowColor = UIColor.darkGray.cgColor
+        layer.shadowOffset = CGSize(width: 0.2, height: 0.2)
+        layer.shadowOpacity = 0.5
+        layer.shadowRadius = 1
+        layer.masksToBounds = false
     }
     
     // Mark: - Binding data for cell
@@ -29,5 +36,9 @@ class MessageTableViewCell: UITableViewCell {
         nameLabel.text = twitter.user.name
         messageLabel.text = twitter.message.text
         avatarImgView.loadImagesUsingUrlString(urlString: twitter.user.avatar)
+        
+        DispatchQueue.main.async {
+            self.layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath
+        }
     }
 }

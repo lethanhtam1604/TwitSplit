@@ -13,7 +13,6 @@ class MainViewController: UITabBarController {
     // Mark: - Variable
     fileprivate var messagesViewController: MessagesViewController!
     fileprivate var settingsViewController: SettingsViewController!
-    fileprivate var testViewController: TestViewController!
     fileprivate var previousTag = 1
     
     // Mark: - View Cycle
@@ -64,6 +63,7 @@ extension MainViewController {
     fileprivate func initCommon() {
         title = "messages".uppercased()
         view.tintColor = Global.colorMain
+        view.backgroundColor = Global.colorBg
         tabBar.shadowImage = UIImage()
         tabBar.barTintColor = UIColor.white
         tabBar.backgroundImage = UIImage()
@@ -86,21 +86,13 @@ extension MainViewController {
             settingsViewController = viewController
         }
         
-        storyboard = UIStoryboard(name: "Test", bundle: nil)
-        if let viewController = storyboard.instantiateViewController(withIdentifier: "TestViewController") as? TestViewController {
-            testViewController = viewController
-        }
-        
         let channelsBarItem = UITabBarItem(title: "messages".uppercased(), image: UIImage(named: "ic_channel"), tag: 1)
         messagesViewController.tabBarItem = channelsBarItem
         
         let settingsBarItem = UITabBarItem(title: "settings".uppercased(), image: UIImage(named: "ic_setting"), tag: 2)
         settingsViewController.tabBarItem = settingsBarItem
         
-        let testBarItem = UITabBarItem(title: "Test".uppercased(), image: UIImage(named: "ic_setting"), tag: 2)
-        testViewController.tabBarItem = testBarItem
-        
-        viewControllers = [messagesViewController, settingsViewController, testViewController]
+        viewControllers = [messagesViewController, settingsViewController]
     }
 }
 
@@ -131,6 +123,19 @@ extension MainViewController: UITabBarControllerDelegate {
         return ScrollingTransitionAnimator(tabBarController: tabBarController, lastIndex: tabBarController.selectedIndex)
     }
     
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        
+        if selectedViewController == nil || viewController == selectedViewController {
+            return false
+        }
+        
+        let fromView = selectedViewController!.view
+        let toView = viewController.view
+        
+        UIView.transition(from: fromView!, to: toView!, duration: 0.4, options: [.transitionCrossDissolve], completion: nil)
+        
+        return true
+    }
 }
 
 class ScrollingTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
@@ -140,7 +145,7 @@ class ScrollingTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioni
     var lastIndex = 0
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.8
+        return 0.6
     }
     
     init(tabBarController: UITabBarController, lastIndex: Int) {

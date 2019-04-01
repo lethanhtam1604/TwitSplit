@@ -40,6 +40,13 @@ extension BaseViewController {
         navigationController?.navigationBar.barTintColor = UIColor.white
         navigationController?.navigationBar.tintColor = UIColor.black
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.black, NSAttributedStringKey.font: UIFont(name: "OpenSans-semibold", size: 15) ?? UIFont.systemFontSize]
+        
+//        self.navigationController?.navigationBar.layer.shadowColor = UIColor.black.withAlphaComponent(0.3).cgColor
+//        self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0.0, height: 0.3)
+//        self.navigationController?.navigationBar.layer.shadowRadius = 1
+//        self.navigationController?.navigationBar.layer.shadowOpacity = 0.6
+//        self.navigationController?.navigationBar.layer.masksToBounds = false
+        
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.isTranslucent = false
